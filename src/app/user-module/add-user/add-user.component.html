@@ -1,0 +1,26 @@
+<div>
+    <form [formGroup]="userForm" action="" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" formControlName="name">
+            <div class="error-message" *ngIf="userForm.get('name')!.invalid && userForm.get('name')!.touched">
+                Name is required.
+            </div>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="text" formControlName="email">
+            <div  class="error-message" *ngIf="userForm.get('email')!.invalid && userForm.get('email')!.touched">
+                Email is required.
+            </div>
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input id="age" type="text" formControlName="age">
+            <div class="error-message" *ngIf="userForm.get('age')!.invalid  && userForm.get('age')!.touched">
+                Age >= 18.
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

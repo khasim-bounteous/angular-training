@@ -1,0 +1,7 @@
+<p>****************************************</p>
+<p>components-a works</p>
+<input type="text" [(ngModel)]="data">
+<button (click)="sendingMessage()">send</button>
+<p>Message from B: {{message}}</p>
+<p>****************************************</p>
+<app-component-b [message]="sendMessage" (messageEvent)="receiveMessage($event)"></app-component-b>

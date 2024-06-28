@@ -1,0 +1,24 @@
+/* styles.scss (or your global or component-specific style file) */
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #01142a; /* Navbar background color */
+    padding: 10px; /* Padding around navbar items */
+    margin-bottom: 50px;
+  }
+  
+  /* Navbar links */
+  .navbar a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove default underline */
+    padding: 5px 10px; /* Padding inside links */
+    border-radius: 5px; /* Rounded corners for links */
+  }
+  
+  .navbar a.router-link-active {
+    background-color: #0056b3; 
+  }
+  

@@ -1,22 +1,13 @@
-<a [routerLink]="['/']">
-    <header class="brand-name">
-      <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
-    </header>
-</a>
-<a [routerLink]="['/details']">
-    <header class="brand-name">
-      <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
-    </header>
-</a>
-<a [routerLink]="['/forms']">
-    <header class="brand-name">
-      <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
-    </header>
-</a>
-<a [routerLink]="['/reactiveForms']">
-    <header class="brand-name">
-      <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
-    </header>
-</a>
+<div class="navbar">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+    <a [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a>
+    <a [routerLink]="['/addUser']" routerLinkActive="router-link-active" >addUser</a>
+</div>
+
+<!-- <app-text-enhancer></app-text-enhancer> -->
+<!-- <app-component-lifecycle></app-component-lifecycle> -->
+<!-- <app-component-a></app-component-a> -->
+<!-- <app-data-binding></app-data-binding> -->
+<!-- <app-directives></app-directives> -->
 
 <router-outlet></router-outlet>

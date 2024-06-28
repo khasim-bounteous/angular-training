@@ -1,0 +1,63 @@
+/* add-user.component.scss */
+
+/* Container styles */
+:host {
+    display: block; /* Ensures the component behaves like a block element */
+    max-width: 400px; /* Example max-width for the form container */
+    margin: 0 auto; /* Center align the form */
+  }
+  
+  /* Form styles */
+  form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  /* Form fields styles */
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"], input[type="email"] {
+    width: calc(100% - 20px); /* Adjust width minus padding */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Error message styles */
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Submit button styles */
+  button[type="submit"] {
+    background-color: #007bff; /* Bootstrap blue color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #ccc; /* Disable color */
+    cursor: not-allowed;
+  }
+  

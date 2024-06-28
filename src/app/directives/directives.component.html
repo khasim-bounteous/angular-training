@@ -1,0 +1,4 @@
+<div *ngFor="let item of items" [ngStyle]="{'font-size': fontSize}">
+   <p *ngIf="item==='ant'; else elseitem">{{item | uppercase}}</p> 
+   <ng-template  #elseitem><p [ngStyle]="{'color': color}">{{item | lowercase}}</p></ng-template>
+</div>

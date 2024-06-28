@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userData">
+            <td>{{user.userId}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.age}}</td>
+            <td><a [routerLink]="['/user/'+user.userId]" routerLinkActive="router-link-active">Update</a></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+<input type="text" [(ngModel)]="para">
+<div *ngIf="para">
+    <p>upperCase: {{ para | uppercase}}</p>
+    <p>lowerCase: {{ para | lowercase}}</p>
+</div>
+
+<p>length of the paragraph: {{ para.length}}</p>
+
+<p>letters: {{countLetters()}}</p>
+
+<p>numbers: {{countNumbers()}}</p>
+
+<p>special charaters: {{countSpecialCharacters()}}</p>
+
+<p>words: {{countWords()}}</p>
+
+<app-harrypotter-movies></app-harrypotter-movies>
