@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { UserDetails } from '../interface/user-details';
 import { Observable, of } from 'rxjs';
+import { APP_SERVICE_CONFIG } from '../AppConfig/appconfig.service';
+import { AppConfig } from '../AppConfig/appconfig.interface';
+import { localStorageToken } from '../javascriptapis/localstorage.token';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +31,13 @@ export class UserServiceService {
     }
   ]
 
-  constructor() { }
+  constructor(
+    @Inject(APP_SERVICE_CONFIG) private config: AppConfig,
+    @Inject(localStorageToken) private localStorage: Storage
+  ) {
+    console.log(config.apiEndpoint)
+    localStorage.setItem("name","hello")
+   }
 
   getUserData(): UserDetails[]{
     return this.users

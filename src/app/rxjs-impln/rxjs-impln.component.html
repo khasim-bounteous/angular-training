@@ -1,0 +1,15 @@
+<p>rxjs-impln works!</p>
+<p>{{totalBytes}}</p>
+<p>{{roomsCount}}</p>
+
+<div *ngFor="let item of items">
+    {{item.id + item.title}}
+</div>
+
+<!--  -->
+<p>***********************************</p>
+<div *ngIf="items$ | async as itemss"> // using as operator for alias and using async operator for sub
+    <div *ngFor="let item of itemss">
+        {{item.id + item.title}}
+    </div>
+</div>

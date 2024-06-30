@@ -1,0 +1,14 @@
+<p>Switch map</p>
+<div>
+    <input type="text" placeholder="Enter something" [formControl]="searchControl">
+    <p>{{counter}}</p>
+</div>
+<p>map</p>
+<div *ngFor="let item of impItems">
+    <div>
+        <p>Title: {{item.title}}</p>
+        <p>Description: {{item.description}}</p>
+        <hr>
+    </div>
+</div>
+

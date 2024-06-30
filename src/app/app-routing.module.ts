@@ -7,6 +7,8 @@ import { UpdateUserComponent } from './user-module/update-user/update-user.compo
 import { RoutesModuleComponent } from './routes-module/routes-module.component';
 import { Cmp1Component } from './routes-module/cmp-1/cmp-1.component';
 import { Cmp2Component } from './routes-module/cmp-2/cmp-2.component';
+import { RxjsImplnComponent } from './rxjs-impln/rxjs-impln.component';
+import { MapsComponentComponent } from './rxjs-impln/maps-component/maps-component.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,10 @@ const routes: Routes = [
     component: UpdateUserComponent,
   },
   {
+    path: 'rxjsimpl',
+    component: RxjsImplnComponent,
+  },
+  {
     path: 'routes',
     component: RoutesModuleComponent,
     children:[
@@ -38,6 +44,10 @@ const routes: Routes = [
         component: Cmp2Component
       }
     ]
+  },
+  {
+    path: 'mapImpl',
+    component: MapsComponentComponent
   }
 ];
 

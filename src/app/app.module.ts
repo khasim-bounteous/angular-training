@@ -14,6 +14,10 @@ import { AddUserComponent } from './user-module/add-user/add-user.component';
 import { UpdateUserComponent } from './user-module/update-user/update-user.component';
 import { UserModuleModule } from './user-module/user-module.module';
 import { RoutesModuleComponent } from './routes-module/routes-module.component';
+import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RxjsImplnComponent } from './rxjs-impln/rxjs-impln.component';
+import { RxjsImplnModule } from './rxjs-impln/rxjs-impln.module';
 
 
 @NgModule({
@@ -32,8 +36,16 @@ import { RoutesModuleComponent } from './routes-module/routes-module.component';
     FormsModule,
     ComponentInteractionModule,
     ReactiveFormsModule,
-    UserModuleModule
+    UserModuleModule,
+    HttpClientModule,
+    RxjsImplnModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: APP_SERVICE_CONFIG,
+      useValue: APP_CONFIG
+    }
+  ]
 })
 export class AppModule { }
