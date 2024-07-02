@@ -1,4 +1,5 @@
 export interface HarryPotter {
     title: string,
-    year: number
+    year: number,
+    img: string
 }

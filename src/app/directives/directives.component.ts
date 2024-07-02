@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-directives',
   templateUrl: './directives.component.html',
-  styleUrl: './directives.component.scss'
+  styleUrl: './directives.component.css'
 })
 export class DirectivesComponent {
   items = ["ant","bull","cat","dog"]

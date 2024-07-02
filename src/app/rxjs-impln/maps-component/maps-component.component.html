@@ -1,14 +1,24 @@
-<p>Switch map</p>
-<div>
-    <input type="text" placeholder="Enter something" [formControl]="searchControl">
-    <p>{{counter}}</p>
-</div>
-<p>map</p>
-<div *ngFor="let item of impItems">
-    <div>
-        <p>Title: {{item.title}}</p>
-        <p>Description: {{item.description}}</p>
-        <hr>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <p>Switch map</p>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Enter something" [formControl]="searchControl">
+        </div>
+        <p>Counter: {{ counter }}</p>
+      </div>
     </div>
-</div>
-
+  
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-6">
+        <p>Map</p>
+        <div *ngFor="let item of impItems" class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

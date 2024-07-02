@@ -1,15 +1,51 @@
-<p>rxjs-impln works!</p>
-<p>{{totalBytes}}</p>
+<p>Total bytes fetchd: {{totalBytes}}</p>
 <p>{{roomsCount}}</p>
 
-<div *ngFor="let item of items">
-    {{item.id + item.title}}
+<div (click)="toggle()" class="text-center">
+    <button class="btn btn-primary ">{{cmpItemsDisplay ? "Asyc Items":"Cmp Items"}}</button>
 </div>
 
-<!--  -->
-<p>***********************************</p>
-<div *ngIf="items$ | async as itemss"> // using as operator for alias and using async operator for sub
-    <div *ngFor="let item of itemss">
-        {{item.id + item.title}}
+<div *ngIf="items$ | async as itemss"> 
+    <div *ngIf="!cmpItemsDisplay" class="container mt-4">
+        <p>***********TEMPLATE ASYNC*************</p>
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let item of itemss">
+                <div class="card h-100">
+                    <img [src]="item.image" class="my-5 custom-img" alt="{{ item.title }}">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.description | slice:0:100 }}...</p>
+                    <p class="card-text"><strong>Category:</strong> {{ item.category }}</p>
+                    <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
+                    <p class="card-text">
+                        <strong>Rating:</strong> {{ item.rating.rate }} 
+                        <span class="text-muted">({{ item.rating.count }} reviews)</span>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="cmpItemsDisplay" class="container mt-4">
+        <p>***************COMPONENT FETCHING********************</p>
+        <div class="row">
+        <div class="col-md-3 mb-4" *ngFor="let item of items">
+            <div class="card h-100">
+            <img [src]="item.image" class="my-5 custom-img" alt="{{ item.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.description | slice:0:100 }}...</p>
+                <p class="card-text"><strong>Category:</strong> {{ item.category }}</p>
+                <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
+                <p class="card-text">
+                <strong>Rating:</strong> {{ item.rating.rate }} 
+                <span class="text-muted">({{ item.rating.count }} reviews)</span>
+                </p>
+            </div>
+            </div>
+        </div>
     </div>
 </div>

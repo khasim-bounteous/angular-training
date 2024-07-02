@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { UserDetails } from '../interface/user-details';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { APP_SERVICE_CONFIG } from '../AppConfig/appconfig.service';
 import { AppConfig } from '../AppConfig/appconfig.interface';
 import { localStorageToken } from '../javascriptapis/localstorage.token';
@@ -10,7 +10,7 @@ import { localStorageToken } from '../javascriptapis/localstorage.token';
 })
 export class UserServiceService {
 
-  users = [
+  users:UserDetails[] = [
     {
       userId: '1',
       name: "harry",
@@ -31,6 +31,8 @@ export class UserServiceService {
     }
   ]
 
+  private usersSubject = new BehaviorSubject<UserDetails[]>(this.users);
+
   constructor(
     @Inject(APP_SERVICE_CONFIG) private config: AppConfig,
     @Inject(localStorageToken) private localStorage: Storage
@@ -39,16 +41,22 @@ export class UserServiceService {
     localStorage.setItem("name","hello")
    }
 
-  getUserData(): UserDetails[]{
-    return this.users
+  getUserData(): Observable<UserDetails[]>{
+    return this.usersSubject.asObservable();
   }
 
   addUser(userDetails: UserDetails):void{
     this.users.push(userDetails)
+    this.usersSubject.next(this.users)
   }
 
   getUserById(id: string):UserDetails | undefined {
     return this.users.find(user=>user.userId === id)
+  }
+
+  deleteUserById(id:string):void{
+    this.users = this.users.filter((item)=>item.userId != id)
+    this.usersSubject.next(this.users)
   }
 
   updateUser(user: UserDetails): void{
@@ -58,6 +66,7 @@ export class UserServiceService {
         else
           return u
       })
+      this.usersSubject.next(this.users);
       console.log(this.users)
   }
 }

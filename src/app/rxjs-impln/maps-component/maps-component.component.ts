@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { StoreServiceService } from '../../services/store-service.service';
 import { Product } from '../../interface/product';
-import { debounce, debounceTime, interval, map, switchMap } from 'rxjs';
+import { concatMap, debounce, debounceTime, filter, interval, map, mergeMap, of, switchMap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -12,16 +12,42 @@ import { FormControl } from '@angular/forms';
 export class MapsComponentComponent {
 
   constructor(private storeService: StoreServiceService){}
+
   items: Product[]= []
   impItems: Product[] = []
   searchControl = new FormControl()
   counter = 0
-
+  productId = of(1,2,3,4)
   
   ngOnInit(){
 
     this.storeService.getAllProducts().subscribe((data)=>{
       this.items = data
+    })
+
+    // merge map
+    this.productId.pipe(
+      mergeMap((item)=> this.storeService.getProductById(item))
+    ).subscribe((data)=>{
+      console.log(data)
+      console.log("Merge")
+    })
+
+    // concat map
+    this.productId.pipe(
+      concatMap((item)=> this.storeService.getProductById(item))
+    ).subscribe((data)=>{
+      console.log(data)
+      console.log("Concat")
+    })
+
+    // filter map
+    this.productId.pipe(
+      filter((item)=>item %2==0),
+      concatMap((item)=>this.storeService.getProductById(item))
+    ).subscribe((data)=>{
+      console.log(data)
+      console.log("Filter")
     })
     
     this.searchControl.valueChanges.pipe(

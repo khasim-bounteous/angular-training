@@ -1,17 +1,35 @@
-<input type="text" [(ngModel)]="para">
-<div *ngIf="para">
-    <p>upperCase: {{ para | uppercase}}</p>
-    <p>lowerCase: {{ para | lowercase}}</p>
+<div class="container">
+    <div class="form-group mb-3 ">
+      <h1 class="text-center mb-3">TEXT ANALYZER</h1>
+      <textarea
+        type="text"
+        class="form-control w-100"
+        id="inputText"
+        [(ngModel)]="para"
+        style="height: 100px;"
+        placeholder="Type something here..."
+      ></textarea>
+    </div>
+  
+    <p class="text-primary">UpperCase: {{ para | uppercase }}</p>
+    <p class="text-primary">LowerCase: {{ para | lowercase }}</p>
+  
+    <p class="mt-2">Length of the paragraph: <span class="badge badge-info">{{ para.length }}</span></p>
+  
+    <p>Letters: <span class="">{{ countLetters() }}</span></p>
+  
+    <p>Numbers: <span class="">{{ countNumbers() }}</span></p>
+  
+    <p>Special characters: <span class="">{{ countSpecialCharacters() }}</span></p>
+  
+    <p>Words: <span class="">{{ countWords() }}</span></p>
+
+    <div class="text-center">
+      <h1 class="text-center">Come check your power</h1>
+      <input type="text" [(ngModel)]="baseNumber">
+      <input type="text" [(ngModel)]="power">
+      <p>Result: {{ baseNumber | exponentialStrength:power }}</p>
+    </div>
 </div>
 
-<p>length of the paragraph: {{ para.length}}</p>
-
-<p>letters: {{countLetters()}}</p>
-
-<p>numbers: {{countNumbers()}}</p>
-
-<p>special charaters: {{countSpecialCharacters()}}</p>
-
-<p>words: {{countWords()}}</p>
-
-<app-harrypotter-movies></app-harrypotter-movies>
+  

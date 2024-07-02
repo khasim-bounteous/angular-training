@@ -7,18 +7,17 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
     HomeComponent,
     UpdateUserComponent,
-    AddUserComponent
+    AddUserComponent,
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class UserModuleModule { }

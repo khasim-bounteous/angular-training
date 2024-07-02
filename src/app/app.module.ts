@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentInteractionModule } from './component-interaction/component-interaction.module';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { DirectivesComponent } from './directives/directives.component';
-import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './user-module/home/home.component';
 import { AddUserComponent } from './user-module/add-user/add-user.component';
 import { UpdateUserComponent } from './user-module/update-user/update-user.component';
@@ -18,6 +17,8 @@ import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RxjsImplnComponent } from './rxjs-impln/rxjs-impln.component';
 import { RxjsImplnModule } from './rxjs-impln/rxjs-impln.module';
+import { UserModuleComponent } from './user-module/user-module.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 @NgModule({
@@ -26,8 +27,9 @@ import { RxjsImplnModule } from './rxjs-impln/rxjs-impln.module';
     ComponentLifecycleComponent,
     DataBindingComponent,
     DirectivesComponent,
-    AboutComponent,
     RoutesModuleComponent,
+    UserModuleComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

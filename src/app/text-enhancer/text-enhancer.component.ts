@@ -8,6 +8,8 @@ import { Component} from '@angular/core';
 export class TextEnhancerComponent {
 
   para: string = ""
+  baseNumber:number = 0
+  power:number = 0
   
   countLetters():number{
     const lettersOnly = this.para.replace(/[^a-zA-Z]/g,'')
@@ -24,7 +26,7 @@ export class TextEnhancerComponent {
   }
 
   countSpecialCharacters(): number{
-    const specialOnly = this.para.replace(/[^\da-zA-Z]+/g,'');
+    const specialOnly = this.para.replace(/[\da-zA-Z]+/g,'');
     return specialOnly?.length ?? 0
   }
 }

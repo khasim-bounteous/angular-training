@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../../services/user-service.service';
 import { UserDetails } from '../../interface/user-details';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-user',
@@ -21,7 +21,8 @@ export class UpdateUserComponent {
 
   constructor(
     private userService: UserServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ){
 
   }
@@ -53,7 +54,8 @@ export class UpdateUserComponent {
         age: age
       };
       this.userService.updateUser(userDetails);
-      this.userForm.reset(); 
+      this.userForm.reset();
+      this.router.navigate(['/users']); 
     } else {
       alert("fill the details correctly")
     }

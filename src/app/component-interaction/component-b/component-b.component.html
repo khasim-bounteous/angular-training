@@ -1,4 +1,8 @@
-<p>component-b works!</p>
-<p>Message from A : {{message}}</p>
-<input type="text" [(ngModel)]="outMessage">
-<button (click)="sendMessage()">send</button>
+<div class="card">
+    <div class="card-body">
+      <p>Message from A : {{message}}</p>
+      <input type="text" [(ngModel)]="outMessage" class="form-control mb-2" placeholder="Type a response">
+      <button class="btn btn-primary" (click)="sendMessage()">send</button>
+    </div>
+  </div>
+  

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, from, of, shareReplay } from 'rxjs';
 import { Product } from '../interface/product';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { dummyData } from '../mockdata/dummyData';
 
 @Injectable({
@@ -54,6 +54,10 @@ export class StoreServiceService {
 
   updateProduct(productId:number): Observable<Product>{
     return this.http.put<Product>(`${environment.apiEndpoint}/products/${productId}`,dummyData[1])
+  }
+
+  getProductById(productId: number): Observable<Product>{
+    return this.http.get<Product>(`${environment.apiEndpoint}/products/${productId}`)
   }
 
 // using new HttpRequest we will get some extra functionalities

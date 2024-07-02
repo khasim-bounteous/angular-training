@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../../services/user-service.service';
 import { UserDetails } from '../../interface/user-details';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-add-user',
@@ -17,7 +18,7 @@ export class AddUserComponent {
     age: new FormControl('', [Validators.min(18),Validators.required]),
   })
 
-  constructor(private userService: UserServiceService){}
+  constructor(private userService: UserServiceService, private router: Router){}
 
   onSubmit() {
     if (this.userForm.valid) {
@@ -26,12 +27,13 @@ export class AddUserComponent {
       const age = ageValue !== null ? parseInt(ageValue, 10) : 0;
 
       const userDetails: UserDetails = {
-        userId: (this.userService.getUserData().length+1).toString(),
+        userId: (this.userService.users.length+1).toString(),
         name: this.userForm.get('name')?.value || "",
         email: this.userForm.get('email')?.value || "",
         age: age
       };
       this.userService.addUser(userDetails);
+      this.router.navigate(['/users']); 
       this.userForm.reset(); 
     } else {
       alert("fill the details correctly")

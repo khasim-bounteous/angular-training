@@ -13,7 +13,11 @@ export class HomeComponent {
   constructor(private userService: UserServiceService){}
 
   ngOnInit(){
-      this.userData = this.userService.getUserData()
+      this.userService.getUserData().subscribe((data)=>this.userData = data)
   }
 
+  
+  deleteUser(userId:string){
+    this.userService.deleteUserById(userId)
+  }
 }

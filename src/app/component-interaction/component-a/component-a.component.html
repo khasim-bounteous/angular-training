@@ -1,7 +1,17 @@
-<p>****************************************</p>
-<p>components-a works</p>
-<input type="text" [(ngModel)]="data">
-<button (click)="sendingMessage()">send</button>
-<p>Message from B: {{message}}</p>
-<p>****************************************</p>
-<app-component-b [message]="sendMessage" (messageEvent)="receiveMessage($event)"></app-component-b>
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <p>Message from B: {{message}}</p>
+            <input type="text" [(ngModel)]="data" class="form-control mb-2" placeholder="Type a message">
+            <button class="btn btn-primary" (click)="sendingMessage()">send</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <app-component-b [message]="sendMessage" (messageEvent)="receiveMessage($event)"></app-component-b>
+      </div>
+    </div>
+  </div>
+  

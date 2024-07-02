@@ -18,6 +18,10 @@ export class RxjsImplnComponent {
   constructor(private storeService: StoreServiceService){
   }
 
+  cmpItemsDisplay = true
+  toggle(){
+    this.cmpItemsDisplay = !this.cmpItemsDisplay
+  }
   ngOnInit(){
 
     this.storeService.observable.subscribe((data)=>{
@@ -80,6 +84,7 @@ export class RxjsImplnComponent {
         }
         case HttpEventType.DownloadProgress:{
           this.totalBytes+= event.loaded
+          console.log(event.loaded)
           break;
         }
         case HttpEventType.Response: {
