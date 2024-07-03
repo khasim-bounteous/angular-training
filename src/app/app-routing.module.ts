@@ -43,10 +43,6 @@ const routes: Routes = [
     component: ComponentAComponent
   },
   {
-    path: 'harryPotter',
-    component: HarrypotterMoviesComponent
-  },
-  {
     path: 'rxjsimpl',
     component: RxjsImplnComponent,
   },
@@ -57,6 +53,14 @@ const routes: Routes = [
   { 
     path: 'directives',
     component: DirectivesComponent
+  },
+  // {
+  //   path: 'harry',
+  //   component: HarrypotterMoviesComponent
+  // },
+  {
+    path: 'harrypotter',
+    loadChildren: ()=> import('./feature/feature.module').then(m=>m.FeatureModule)
   },
   {
     path: 'routes',

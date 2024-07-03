@@ -19,6 +19,7 @@ import { RxjsImplnComponent } from './rxjs-impln/rxjs-impln.component';
 import { RxjsImplnModule } from './rxjs-impln/rxjs-impln.module';
 import { UserModuleComponent } from './user-module/user-module.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { FeatureModule } from './feature/feature.module';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     ReactiveFormsModule,
     UserModuleModule,
     HttpClientModule,
-    RxjsImplnModule
+    RxjsImplnModule,
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -33,7 +33,6 @@ export class StoreServiceService {
   )
 
   constructor(private http: HttpClient) {
-    console.log("hello")
   }
 
   getObsOf(): Observable<any[]>{
