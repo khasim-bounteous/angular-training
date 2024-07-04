@@ -1,5 +1,33 @@
-<h2>Hover to see custom directive</h2>
-<div *ngFor="let item of items; let i =index" [ngClass]="i%2==0 ? 'red': 'blue'" [ngStyle]="{'font-size': fontSize}">
-   <p *ngIf="item==='ant'; else elseitem">{{i+1}}.{{item | uppercase}}</p> 
-   <ng-template  #elseitem><p  appHighlight="lightblue">{{i+1}}.{{item | lowercase}}</p></ng-template>
-</div>
+<section class="container mt-5">
+  <h2 class="mb-4">India won by how many runs in the 2024 T20 final!!</h2>
+  <div class="form-group">
+    <label for="userAns">Your Answer:</label>
+    <input 
+      type="text" 
+      class="form-control mb-3" 
+      id="userAns" 
+      placeholder="Enter your answer" 
+      [formControl]="userAns">
+    <small class="form-text text-muted">{{chances}} chances left</small>
+  </div>
+  <p class="alert alert-success" *ngIf="isCorrectAns; else wrongAns">Hurryyyyy correct</p>
+  <ng-template #wrongAns>
+    <p *ngIf="chances<3" class="alert alert-danger">Wrong answer</p>
+  </ng-template>
+</section>
+
+<section class="container">
+   <h2 class="mt-5">Hover to see custom directive</h2>
+   <div class="list-group">
+      <div 
+         appHighlight="lightblue" 
+         *ngFor="let item of items; let i = index" 
+         [ngStyle]="{'font-size': i % 2 == 0 ? fontSize : ''}" 
+         [ngClass]="i % 2 == 0 ? 'red' : 'blue'">
+         <p *ngIf="i % 2 == 0; else elseitem">{{i + 1}}.{{item | uppercase}}</p>
+         <ng-template #elseitem>
+            <h2>{{i + 1}}.{{item | lowercase}}</h2>
+         </ng-template>
+      </div>
+   </div>
+</section>

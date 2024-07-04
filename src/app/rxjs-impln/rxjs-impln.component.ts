@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { StoreServiceService } from '../services/store-service.service';
 import { Product } from '../interface/product';
 import { HttpEventType } from '@angular/common/http';
-import { map } from 'rxjs';
+import { debounceTime, map } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-impln',

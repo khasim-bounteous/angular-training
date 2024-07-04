@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { StoreServiceService } from '../../services/store-service.service';
 import { Product } from '../../interface/product';
-import { concatMap, debounce, debounceTime, filter, interval, map, mergeMap, of, switchMap } from 'rxjs';
+import { concatMap, debounce, debounceTime, delay, filter, interval, map, mergeMap, of, switchMap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -12,42 +12,41 @@ import { FormControl } from '@angular/forms';
 export class MapsComponentComponent {
 
   constructor(private storeService: StoreServiceService){}
-
   items: Product[]= []
-  impItems: Product[] = []
+  mapResult: Product[] = []
   searchControl = new FormControl()
   counter = 0
   productId = of(1,2,3,4)
-  
+
+  mergeResult : Product[] = []
+  concatResult : Product[] = []
+  filterResult: Product[] = []
+
   ngOnInit(){
 
-    this.storeService.getAllProducts().subscribe((data)=>{
-      this.items = data
-    })
 
     // merge map
     this.productId.pipe(
+      delay(2000),
       mergeMap((item)=> this.storeService.getProductById(item))
     ).subscribe((data)=>{
-      console.log(data)
-      console.log("Merge")
+      this.mergeResult.push(data)
     })
 
     // concat map
     this.productId.pipe(
+      delay(2000),
       concatMap((item)=> this.storeService.getProductById(item))
     ).subscribe((data)=>{
-      console.log(data)
-      console.log("Concat")
+      this.concatResult.push(data)
     })
 
     // filter map
     this.productId.pipe(
       filter((item)=>item %2==0),
-      concatMap((item)=>this.storeService.getProductById(item))
+      mergeMap((item)=>this.storeService.getProductById(item))
     ).subscribe((data)=>{
-      console.log(data)
-      console.log("Filter")
+      this.filterResult.push(data)
     })
     
     this.searchControl.valueChanges.pipe(
@@ -59,11 +58,11 @@ export class MapsComponentComponent {
         map(res=> res.map(data=>{
           return {
             ...data,
-            title: data.title + " helllo"
+            title: data.title + " ------------mapppp changed me----- i wont leave ittt!!!!"
           }
         }
       ))
-    ).subscribe((data)=>this.impItems = data)
+    ).subscribe((data)=>this.mapResult = data.slice(0,4))
   }
 
 }

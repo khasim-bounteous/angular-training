@@ -17,11 +17,11 @@ export class ComponentAComponent {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      if (this.cmpB) {
-        this.cmpB.message = "hello";
-      }
-    }, 0);
+    // setTimeout(() => {
+    //   if (this.cmpB) {
+    //     this.cmpB.message = "hello";
+    //   }
+    // }, 0);
   }
 
   message= ''

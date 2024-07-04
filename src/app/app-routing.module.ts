@@ -36,7 +36,7 @@ const routes: Routes = [
 
   {
     path: 'text-analyser',
-    component: TextEnhancerComponent
+    component: TextEnhancerComponent,
   },  
   {
     path: 'chat',

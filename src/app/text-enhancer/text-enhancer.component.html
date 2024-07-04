@@ -14,7 +14,7 @@
     <p class="text-primary">UpperCase: {{ para | uppercase }}</p>
     <p class="text-primary">LowerCase: {{ para | lowercase }}</p>
   
-    <p class="mt-2">Length of the paragraph: <span class="badge badge-info">{{ para.length }}</span></p>
+    <p class="mt-2">Length of the paragraph: {{ para.length }}</p>
   
     <p>Letters: <span class="">{{ countLetters() }}</span></p>
   
@@ -24,11 +24,13 @@
   
     <p>Words: <span class="">{{ countWords() }}</span></p>
 
-    <div class="text-center">
-      <h1 class="text-center">Come check your power</h1>
-      <input type="text" [(ngModel)]="baseNumber">
-      <input type="text" [(ngModel)]="power">
-      <p>Result: {{ baseNumber | exponentialStrength:power }}</p>
+    <div class="text-center mt-5">
+      <h2 class="text-center mb-3">Come Check Your Power</h2>
+      <div class="form-group">
+        <input type="text" class="form-control mb-2" placeholder="Base Number" [(ngModel)]="baseNumber">
+        <input type="text" class="form-control mb-2" placeholder="Power" [(ngModel)]="power">
+      </div>
+      <h3 class="font-weight-bold">Result: {{ baseNumber | exponentialStrength:power }}</h3>
     </div>
 </div>
 
