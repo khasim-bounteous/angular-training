@@ -1,0 +1,22 @@
+.counter-display {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 50px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 50px;
+  }
+  

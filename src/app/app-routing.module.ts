@@ -13,6 +13,7 @@ import { TextEnhancerComponent } from './text-enhancer/text-enhancer.component';
 import { ComponentAComponent } from './component-interaction/component-a/component-a.component';
 import { HarrypotterMoviesComponent } from './harrypotter-movies/harrypotter-movies.component';
 import { DirectivesComponent } from './directives/directives.component';
+import { CounterComponent } from './counter/counter.component';
 
 const routes: Routes = [
   {
@@ -54,10 +55,10 @@ const routes: Routes = [
     path: 'directives',
     component: DirectivesComponent
   },
-  // {
-  //   path: 'harry',
-  //   component: HarrypotterMoviesComponent
-  // },
+  {
+    path: 'ngrx',
+    component: CounterComponent
+  },
   {
     path: 'harrypotter',
     loadChildren: ()=> import('./feature/feature.module').then(m=>m.FeatureModule)

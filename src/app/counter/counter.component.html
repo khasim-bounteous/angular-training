@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-content>
+      <div class="counter-display">
+        <h2>Counter: {{ counterDisplay }}</h2>
+      </div>
+      <div class="button-row">
+        <button mat-raised-button color="primary" (click)="onIncrement()">Increment (+)</button>
+        <button mat-raised-button color="accent" (click)="onDecrement()">Decrement (-)</button>
+        <button mat-raised-button color="warn" (click)="onReset()">Reset</button>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Select</mat-label>
+          <mat-select [(ngModel)]="actionType">
+            <mat-option value="add">Add</mat-option>
+            <mat-option value="sub">Sub</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Custom value</mat-label>
+          <input matInput [(ngModel)]="customNumber">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onCustomIncrement()">Custom add</button>
+      </div>
+      <div class="form-row">
+        <app-counter1></app-counter1>
+      </div>
+    </mat-card-content>
+</mat-card>
+  
