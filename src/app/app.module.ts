@@ -16,13 +16,15 @@ import { RxjsImplnModule } from './rxjs-impln/rxjs-impln.module';
 import { UserModuleComponent } from './user-module/user-module.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './shared/store/counter.reducer';
-import { CounterComponent } from './counter/counter.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './Material.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CounterModule } from './counter/counter.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AppState } from './shared/store/Global/App.state';
+import { BlogComponentModule } from './blog-component/blog-component.module';
+import { EffectsModule } from '@ngrx/effects';
+import { BlogEffects } from './shared/store/blog/Blog.effects';
 
 @NgModule({
     declarations: [
@@ -48,8 +50,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         MaterialModule,
         MatProgressSpinnerModule,
         CounterModule,
-        StoreModule.forRoot({counter:counterReducer}),
-        StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()})
+        BlogComponentModule,
+        StoreModule.forRoot(AppState),
+        StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
+        EffectsModule.forRoot([BlogEffects])
     ], 
         providers: [
             {

@@ -14,6 +14,7 @@ import { ComponentAComponent } from './component-interaction/component-a/compone
 import { HarrypotterMoviesComponent } from './harrypotter-movies/harrypotter-movies.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { CounterComponent } from './counter/counter.component';
+import { BlogComponentComponent } from './blog-component/blog-component.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,11 @@ const routes: Routes = [
   {
     path: 'harrypotter',
     loadChildren: ()=> import('./feature/feature.module').then(m=>m.FeatureModule)
+  },
+  {
+    path: 'blog',
+    component: BlogComponentComponent,
+    title: "blog"
   },
   {
     path: 'routes',

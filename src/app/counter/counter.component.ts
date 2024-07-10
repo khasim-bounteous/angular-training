@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { changeName, customIncrement, decrement, increment, reset } from '../shared/store/counter.actions';
-import { counterModel } from '../shared/store/counter.model';
-import { getCounter } from '../shared/store/counter.selector';
+import { changeName, customIncrement, decrement, increment, reset } from '../shared/store/counter/counter.actions';
+import { counterModel } from '../shared/store/counter/counter.model';
+import { getCounter } from '../shared/store/counter/counter.selector';
+import { AppStateModel } from '../shared/store/Global/AppState.model';
 
 @Component({
   selector: 'app-counter',
@@ -11,7 +12,7 @@ import { getCounter } from '../shared/store/counter.selector';
 })
 export class CounterComponent {
 
-  constructor(private store: Store<{counter:counterModel}>){}
+  constructor(private store: Store<AppStateModel>){}
   counterDisplay!: number;
   customNumber = 0
   actionType = "add"

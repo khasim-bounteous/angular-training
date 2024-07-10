@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { counterModel } from '../../shared/store/counter.model';
-import { changeName } from '../../shared/store/counter.actions';
-import { getName } from '../../shared/store/counter.selector';
+import { counterModel } from '../../shared/store/counter/counter.model';
+import { changeName } from '../../shared/store/counter/counter.actions';
+import { getName } from '../../shared/store/counter/counter.selector';
+import { AppStateModel } from '../../shared/store/Global/AppState.model';
 
 @Component({
   selector: 'app-counter1',
@@ -11,7 +12,7 @@ import { getName } from '../../shared/store/counter.selector';
 })
 export class Counter1Component {
 
-  constructor(private store: Store<{counter: counterModel}>){}
+  constructor(private store: Store<AppStateModel>){}
   currName = ""
   temName = ""
 
